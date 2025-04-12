@@ -10,7 +10,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
     "config-prettier": "^0.3.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2"

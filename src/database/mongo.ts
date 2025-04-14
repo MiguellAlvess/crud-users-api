@@ -5,18 +5,14 @@ export const MongoClient = {
   db: undefined as unknown as Db,
 
   async connect(): Promise<void> {
-    const url = process.env.MONGODB_URL || "locahost:27017";
-    const username = process.env.MONGODB_USERNAME;
-    const password = process.env.MONGODB_PASSWORD;
+    const url = process.env.MONGODB_URL || "mongodb://localhost:27017";
 
-    const client = new Mongo(url, {
-      auth: { username, password },
-    });
-    const db = client.db("users-db");
+    const client = new Mongo(url); // Sem autenticação
+    const db = client.db("concurso-gastronomico-db");
 
     this.client = client;
     this.db = db;
 
-    console.log("Connected to MongoDB");
+    console.log("Conectado ao MongoDB");
   },
 };

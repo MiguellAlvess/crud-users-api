@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon --watch ./src --exec ts-node src/index.ts"
+    "start:dev": "nodemon --watch ./src --exec ts-node src/app.ts"
   },
   "keywords": [],
   "author": "",

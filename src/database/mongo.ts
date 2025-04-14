@@ -8,7 +8,7 @@ export const MongoClient = {
     const url = process.env.MONGODB_URL || "mongodb://localhost:27017";
 
     const client = new Mongo(url); // Sem autenticação
-    const db = client.db("concurso-gastronomico-db");
+    const db = client.db("users-db");
 
     this.client = client;
     this.db = db;

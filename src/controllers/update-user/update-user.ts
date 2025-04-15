@@ -1,18 +1,23 @@
 import { User } from "../../models/user";
-import { CreateUserParams } from "../create-user/protocols";
-import { HttpRequest, HTTPResponse } from "../protocols";
-import {
-  IUpdateUserController,
-  IUpdateUserRepository,
-  UpdateUserParams,
-} from "./protocols";
 
-export class UpdateUserController implements IUpdateUserController {
+import { HttpRequest, HTTPResponse, IController } from "../protocols";
+import { IUpdateUserRepository, UpdateUserParams } from "./protocols";
+
+export class UpdateUserController implements IController {
   constructor(private readonly updateUserRepository: IUpdateUserRepository) {}
-  async handle(httpRequest: HttpRequest<any>): Promise<HTTPResponse<User>> {
+  async handle(
+    httpRequest: HttpRequest<UpdateUserParams>
+  ): Promise<HTTPResponse<User>> {
     try {
       const id = httpRequest?.params?.id;
       const body = httpRequest?.body;
+
+      if (!body) {
+        return {
+          statusCode: 400,
+          body: "O corpo da requisição é obrigatório",
+        };
+      }
 
       if (!id) {
         return {

@@ -1,7 +1,8 @@
 import { get } from "http";
-import { IGetUsersController, IGetUsersRepository } from "./protocols";
+import { IGetUsersRepository } from "./protocols";
+import { IController } from "../protocols";
 
-export class GetUsersController implements IGetUsersController {
+export class GetUsersController implements IController {
   // sinalizando que vai receber um repository
   constructor(private readonly getUsersRepository: IGetUsersRepository) {}
   async handle() {

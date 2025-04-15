@@ -7,7 +7,7 @@ export const MongoClient = {
   async connect(): Promise<void> {
     const url = process.env.MONGODB_URL || "mongodb://localhost:27017";
 
-    const client = new Mongo(url); // Sem autenticação
+    const client = new Mongo(url);
     const db = client.db("users-db");
 
     this.client = client;

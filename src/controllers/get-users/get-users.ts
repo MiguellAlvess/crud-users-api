@@ -17,7 +17,7 @@ export class GetUsersController implements IGetUsersController {
     } catch (error) {
       return {
         statusCode: 500,
-        body: "Internal Server Error",
+        body: "Algo deu errado",
       };
     }
   }

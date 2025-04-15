@@ -5,14 +5,18 @@ export const MongoClient = {
   db: undefined as unknown as Db,
 
   async connect(): Promise<void> {
-    const url = process.env.MONGODB_URL || "mongodb://localhost:27017";
+    try {
+      const url = process.env.MONGODB_URL || "mongodb://localhost:27017";
 
-    const client = new Mongo(url);
-    const db = client.db("users-db");
+      const client = new Mongo(url);
+      const db = client.db("users-db");
 
-    this.client = client;
-    this.db = db;
+      this.client = client;
+      this.db = db;
 
-    console.log("Conectado ao MongoDB");
+      console.log("Conectado ao MongoDB");
+    } catch (error) {
+      console.error("Erro ao conectar ao MongoDB:", error);
+    }
   },
 };
